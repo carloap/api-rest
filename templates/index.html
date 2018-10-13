@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>teste</title>
-</head>
-<body>
-    <h1>Primeira pagina web</h1>
-    <p>{{data['mensagem']}}</p>
-    
-    {%for letra in letras%}
-        {%if letra != 'a' %}
-            <p>{{letra.upper()}}</p>
+	<head>
+		<meta charset="utf-8">
+		<title>Título app 521</title>
+	</head>
+	<body>
+		<h1>Primeira página web</h1>
+		<h3>It works!</h3>
 
-        {% else %}
-        <p>teste do else</p>    
-        {% endif %} 
-    {% endfor%}
-</body>
+		<p>teste = {{ data['mensagem'] }}</p>
+
+		{% if data['pagina'] %}
+			<p>página = {{ data['pagina'] }}</p>
+		{% endif %}
+
+		{# Montar loop #}
+		{% for l in letras %}
+			{% if l != 'a' %}
+				<p>{{ l | upper }}</p>
+			{% else %}
+				<p style="color:red">Teste else: {{ l | upper }}</p>
+			{% endif %}
+		{% endfor %}
+
+	</body>
 </html>
